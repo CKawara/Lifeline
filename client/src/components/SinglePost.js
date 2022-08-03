@@ -1,7 +1,8 @@
-import { Avatar, CardHeader, Container, IconButton, Paper, Typography } from '@mui/material'
+import { Avatar, CardHeader, Container, Divider, IconButton, Paper, Typography } from '@mui/material'
 import React from 'react'
 import heart from '../assets/heart.png'
 import support from '../assets/hug-icon-13.jpg'
+import Comments from './Comments'
 
 const SinglePost = () => {
   return (
@@ -30,6 +31,9 @@ const SinglePost = () => {
                     <img src={support} alt="Logo" height={28}/>
                 </IconButton> <span>I'm With you</span>
                 <IconButton aria-label="share"></IconButton>
+                <Divider/>
+                <Typography variant='h6' sx={{mt:1}}>Comments</Typography>
+                <Comments/>
             </div>
         </Paper>
     </Container>
