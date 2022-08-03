@@ -33,7 +33,7 @@ const PostCard = () => {
             <IconButton aria-label="share">
             <img src={support} alt="Logo" height={28}/>
             </IconButton> <Hidden smDown><span>20 I'm With you</span></Hidden>
-            <IconButton aria-label="share">
+            <IconButton aria-label="share" onClick={()=> history(`/posts/:id`)}>
             <MapsUgcOutlinedIcon sx={{color:'#038B83'}}/>
             </IconButton> <Hidden smDown><span>20 comments</span></Hidden>
         </CardActions>

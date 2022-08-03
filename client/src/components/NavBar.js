@@ -3,10 +3,9 @@ import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {makeStyles} from '@mui/styles';
-import { AppBar, Divider, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Divider, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import { Container } from '@mui/system';
+import LogoutIcon from '@mui/icons-material/Logout';import { Container } from '@mui/system';
 
 const useStyles = makeStyles((theme)=> ({
 
@@ -23,6 +22,9 @@ const useStyles = makeStyles((theme)=> ({
         color: "#038B83",
       },
     },
+    navlinks:{
+        display:'flex'
+    }
 
 }))
 
@@ -30,6 +32,7 @@ const NavBar = () => {
     const classes = useStyles()
     const history = useNavigate()
     const [open, setOpen]=useState(false)
+    
 
   return (
     <Box sx={{ boxShadow: 3 }}>
@@ -46,7 +49,12 @@ const NavBar = () => {
                                 Reach-Out
                             </NavLink>
                             <NavLink to="/dashboard" exact className={classes.link} >
-                                <PersonOutlineIcon fontSize='large'/>
+                                <Avatar sx={{ bgcolor: 'red', width: 28, height: 28 }} aria-label="recipe">
+                                    R
+                                </Avatar>
+                            </NavLink>
+                            <NavLink to="/" exact className={classes.link} >
+                                <LogoutIcon  />
                             </NavLink>
                         </div>
                     </Hidden>
@@ -79,6 +87,9 @@ const NavBar = () => {
                         </NavLink>
                     </ListItem>
                     <ListItem>
+                        <NavLink to="/" exact className={classes.link} >
+                                Log-Out
+                        </NavLink>
                     </ListItem>
                 </List>
             </SwipeableDrawer>
