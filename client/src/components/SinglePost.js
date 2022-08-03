@@ -9,7 +9,7 @@ const SinglePost = () => {
     <Container >
         <CardHeader
             avatar={
-                <Avatar sx={{ bgcolor: 'red', width: 80, height: 80 , boxShadow: 10 }} aria-label="recipe">
+                <Avatar sx={{ bgcolor: 'red', width: 70, height: 70 , boxShadow: 10 }} aria-label="recipe">
                  R
                 </Avatar>
             }
