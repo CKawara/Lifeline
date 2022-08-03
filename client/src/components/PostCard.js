@@ -1,4 +1,4 @@
-import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Link, Typography } from '@mui/material'
+import { Avatar, Card, CardActions, CardContent, CardHeader, Hidden, IconButton, Link, Typography } from '@mui/material'
 import React from 'react'
 import heart from '../assets/heart.png'
 import support from '../assets/hug-icon-13.jpg'
@@ -26,16 +26,16 @@ const PostCard = () => {
             if you like..... <Link onClick={()=> history(`/posts/:id`)} color='#038B83' sx={{cursor: 'pointer'}} ><strong>More</strong></Link>
             </Typography>
         </CardContent>
-        <CardActions disableSpacing>
+        <CardActions >
             <IconButton aria-label="add to favorites">
             <img src={heart} alt="Logo" height={28}/>
-            </IconButton> <span>20 hugs</span>
+            </IconButton> <Hidden smDown><span>20 hugs</span></Hidden>
             <IconButton aria-label="share">
             <img src={support} alt="Logo" height={28}/>
-            </IconButton> <span>20 I'm with you</span>
+            </IconButton> <Hidden smDown><span>20 I'm With you</span></Hidden>
             <IconButton aria-label="share">
             <MapsUgcOutlinedIcon sx={{color:'#038B83'}}/>
-            </IconButton> <span>20 comments</span>
+            </IconButton> <Hidden smDown><span>20 comments</span></Hidden>
         </CardActions>
     </Card>
   )
