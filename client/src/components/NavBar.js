@@ -28,11 +28,18 @@ const useStyles = makeStyles((theme)=> ({
 
 }))
 
-const NavBar = () => {
+const NavBar = ({ user, setUser }) => {
     const classes = useStyles()
     const history = useNavigate()
     const [open, setOpen]=useState(false)
     
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            setUser(null);
+          }
+        });
+    }
 
   return (
     <Box sx={{ boxShadow: 3 }}>
@@ -53,7 +60,7 @@ const NavBar = () => {
                                     R
                                 </Avatar>
                             </NavLink>
-                            <NavLink to="/" exact className={classes.link} >
+                            <NavLink to="/" exact className={classes.link} onClick={handleLogoutClick}>
                                 <LogoutIcon  />
                             </NavLink>
                         </div>
@@ -87,7 +94,7 @@ const NavBar = () => {
                         </NavLink>
                     </ListItem>
                     <ListItem>
-                        <NavLink to="/" exact className={classes.link} >
+                        <NavLink to="/" exact className={classes.link} onClick={handleLogoutClick} >
                                 Log-Out
                         </NavLink>
                     </ListItem>

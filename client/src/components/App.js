@@ -24,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <NavBar/>
+      <NavBar user={user} setUser={setUser}/>
       <Routes>
         <Route path={"/"} element={<HomePage/>} exact/>
         <Route path={"/posts/:id"} element={<SinglePost/>}/>
