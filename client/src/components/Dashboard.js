@@ -19,7 +19,6 @@ const Dashboard = () => {
   const classes = useStyles( )
   return (
     <>
-      <NavBar/>
       <Container>
       <div className={classes.profile}>
         <Avatar sx={{ bgcolor: 'red', width: 100, height: 100 , boxShadow: 10 }} aria-label="recipe">

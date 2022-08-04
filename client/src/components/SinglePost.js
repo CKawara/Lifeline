@@ -8,7 +8,6 @@ import Comments from './Comments'
 const SinglePost = () => {
   return (
     <>
-        <NavBar/>
         <Container >
             <CardHeader
                 avatar={

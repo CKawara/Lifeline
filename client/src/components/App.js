@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import SinglePost from "./SinglePost";
 import Dashboard from "./Dashboard";
 import './App.css'
 import Login from "./Login";
+import NavBar from "./NavBar";
 
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+ 
+  if (!user) return <Login  onLogin={setUser} />;
   return (
     <BrowserRouter>
     <div className="App">
+      <NavBar/>
       <Routes>
-        <Route path={'/'}  element={<Login/>} exact/>
-        <Route path={"/home"} element={<HomePage/>} exact/>
+        <Route path={"/"} element={<HomePage/>} exact/>
         <Route path={"/posts/:id"} element={<SinglePost/>}/>
         <Route path={"/dashboard"} element={<Dashboard/>}/>
       </Routes>

@@ -6,7 +6,6 @@ import PostCard from './PostCard'
 const HomePage = () => {
   return (
     <>
-    <NavBar/>
     <Box>
       <Container>
         <PostCard/>

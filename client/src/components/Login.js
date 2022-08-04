@@ -3,16 +3,30 @@ import support from '../assets/hug-icon-13.jpg'
 import React, { useContext, useState } from 'react'
 import Image from '../assets/heart.png'
 import Signup from './Signup';
-import { useNavigate } from 'react-router-dom';
 
 
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [open, setOpen] = useState(false);
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
 
-  const history = useNavigate()
-
-
+    function handleSubmit(e) {
+      e.preventDefault();
+      fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, password }),
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => onLogin(user));
+        } else {
+          r.json().then((err) => console.log(err.errors));
+        }
+      });
+    }
   const handleOpen = () => {
     setOpen(true);
   };
@@ -49,10 +63,26 @@ const Login = () => {
         </Hidden>
         <Box sx={{mt:11, p:7}}>
           <Typography variant='h5' style={{marginBottom:15}}>Log in here:</Typography>
-          <form >
-            <TextField  margin='dense' label="Name" id="name" variant="outlined" type='text' required fullWidth  />
-            <TextField  margin='dense' label="Password" id='password' variant="outlined"  type="password" required fullWidth />
-            <Button style={{color:'white',backgroundColor:'#038B83'}} disableElevation>
+          <form onSubmit={handleSubmit}>
+            <TextField  
+             margin='dense' 
+             label="Name" 
+             id="name" 
+             variant="outlined" 
+             type='text' 
+             value={name}
+             onChange={(e) => setName(e.target.value)}
+             required fullWidth  />
+            <TextField  
+             margin='dense' 
+             label="Password" 
+             id='password' 
+             variant="outlined"  
+             type="password" 
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+             required fullWidth />
+            <Button type='submit' style={{color:'white',backgroundColor:'#038B83'}} disableElevation>
                 Login
             </Button>           
           </form>
