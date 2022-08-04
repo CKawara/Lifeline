@@ -1,4 +1,4 @@
-import { Avatar, CardHeader, Divider, Typography } from '@mui/material'
+import { Avatar, Divider, Typography } from '@mui/material'
 import {makeStyles} from '@mui/styles';
 import { Container } from '@mui/system'
 import React from 'react'

@@ -1,4 +1,4 @@
-import { Avatar, Button, CardHeader, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
+import { Avatar, Button, CardHeader, FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
 import React from 'react'
 
 const Comments = () => {
@@ -21,7 +21,7 @@ const Comments = () => {
                 label="comment"
             />
         </FormControl>
-        <CardHeader
+        <CardHeader sx={{backgroundColor:'#CCE9E7'}}
             avatar={
                 <Avatar sx={{ bgcolor: 'red', boxShadow: 5}} aria-label="recipe">
                  R
