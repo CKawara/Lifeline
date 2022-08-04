@@ -1,4 +1,5 @@
 import { Dialog, DialogTitle, TextField } from '@material-ui/core'
+import { Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, {useState } from 'react'
 
@@ -31,9 +32,12 @@ const Signup = ({ open, handleClose }) => {
         <DialogTitle>Sign Up Here:</DialogTitle>
         <form className={classes.root}>
           <TextField  margin='dense' label="Name" id="name" variant="outlined" type='text'  required fullWidth  />
+          <TextField  margin='dense' label="Number" id='number' variant="outlined" type="number"  required fullWidth />
           <TextField  margin='dense' label="Email" id='email' variant="outlined" type="email"  required fullWidth />
           <TextField  margin='dense' label="Password" id='password' variant="outlined" type="password"  required fullWidth />
-          <button type='submit' className={classes.btn}>Sign Up</button>
+          <Button style={{color:'white',backgroundColor:'#038B83'}} disableElevation>
+            Sign Up
+          </Button>        
         </form>
     </Dialog>
   )

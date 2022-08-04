@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Hidden, TextField, Typography } from '@mui/material'
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
+import support from '../assets/hug-icon-13.jpg'
 import React, { useContext, useState } from 'react'
 import Image from '../assets/heart.png'
 import Signup from './Signup';
@@ -28,29 +28,37 @@ const Login = () => {
         <Hidden mdDown>
           <div 
           style={{backgroundImage:`url(${Image}`, backgroundRepeat:'no-repeat',
-          objectFit:'fit' }}>
-            <Typography className='logo' variant='h3' sx={{m:3}}>
+            height: '100vh' }}>
+            <Typography className='logo' variant='h3' sx={{p:3}}>
               Lifeline
+            </Typography>
+            <Typography variant='h5' className='logo' sx={{m:5}}>
+              -You're not alone, We're in this together <img src={support} alt="Logo" height={30}/>
             </Typography>
           </div>
         </Hidden>
       </Grid>
       <Grid item xs={12} md={7} style={{backgroundColor:'#E6E6FA', height:'100vh'}}>
         <Hidden mdUp>
-          <Typography className='logo'>
+          <Typography variant='h4' className='logo' sx={{p:3}}>
             Lifeline
           </Typography>
+          <Typography variant='h5' className='logo' sx={{m:5}}>
+            You're not alone, We're in this together <img src={support} alt="Logo" height={28}/>
+          </Typography>
         </Hidden>
-        <Box sx={{p:5}}>
-          <Typography style={{marginBottom:15}}>Log in here:</Typography>
+        <Box sx={{mt:11, p:7}}>
+          <Typography variant='h5' style={{marginBottom:15}}>Log in here:</Typography>
           <form >
             <TextField  margin='dense' label="Name" id="name" variant="outlined" type='text' required fullWidth  />
             <TextField  margin='dense' label="Password" id='password' variant="outlined"  type="password" required fullWidth />
-            <button >Log In</button>
+            <Button style={{color:'white',backgroundColor:'#038B83'}} disableElevation>
+                Login
+            </Button>           
           </form>
           <Typography>Don’t have an account? 
             <Button 
-            sx={{color:'black', fontWeight:'Bolder'}}
+            sx={{color:'#038B83', fontWeight:'Bolder'}}
             onClick={handleOpen}
             >SignUp</Button>
           </Typography>

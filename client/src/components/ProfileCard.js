@@ -1,7 +1,7 @@
 import { Card, CardActions, CardContent, Grid, Hidden, IconButton, Link, Typography } from '@mui/material'
 import React from 'react'
 import heart from '../assets/heart.png'
-import support from '../assets/hug-icon-13.jpg'
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';import BorderColorIcon from '@mui/icons-material/BorderColor';
 import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
 import {  useNavigate } from 'react-router-dom';
@@ -33,7 +33,7 @@ const ProfileCard = () => {
                         <img src={heart} alt="Logo" height={28}/>
                         </IconButton> <Hidden smDown><span>20</span></Hidden>
                         <IconButton aria-label="share">
-                        <img src={support} alt="Logo" height={28}/>
+                        <VolunteerActivismIcon sx={{color: 'black'}}/>
                         </IconButton> <Hidden smDown><span>20</span></Hidden>
                         <IconButton aria-label="share" onClick={()=> history(`/posts/:id`)}>
                         <MapsUgcOutlinedIcon sx={{color:'#038B83'}}/>

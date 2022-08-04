@@ -1,8 +1,8 @@
 import { Avatar, CardHeader, Container, Divider, IconButton, Paper, Typography } from '@mui/material'
 import NavBar from "./NavBar";
 import React from 'react'
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import heart from '../assets/heart.png'
-import support from '../assets/hug-icon-13.jpg'
 import Comments from './Comments'
 
 const SinglePost = () => {
@@ -31,7 +31,7 @@ const SinglePost = () => {
                         <img src={heart} alt="Logo" height={28}/>
                     </IconButton> <span>hugs</span>
                     <IconButton aria-label="share">
-                        <img src={support} alt="Logo" height={28}/>
+                    <VolunteerActivismIcon sx={{color: 'black'}}/>
                     </IconButton> <span>I'm With you</span>
                     <IconButton aria-label="share"></IconButton>
                     <Divider/>
