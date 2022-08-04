@@ -1,4 +1,5 @@
 import { Avatar, Divider, Typography } from '@mui/material'
+import NavBar from "./NavBar";
 import {makeStyles} from '@mui/styles';
 import { Container } from '@mui/system'
 import React from 'react'
@@ -17,7 +18,9 @@ const useStyles = makeStyles(()=>({
 const Dashboard = () => {
   const classes = useStyles( )
   return (
-    <Container>
+    <>
+      <NavBar/>
+      <Container>
       <div className={classes.profile}>
         <Avatar sx={{ bgcolor: 'red', width: 100, height: 100 , boxShadow: 10 }} aria-label="recipe">
                 R
@@ -32,6 +35,8 @@ const Dashboard = () => {
       <Typography sx={{mt: 3}} align="center" variant='h4'>My Posts</Typography>
       <ProfileCard/>
     </Container>
+    </>
+    
   )
 }
 

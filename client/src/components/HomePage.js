@@ -1,9 +1,12 @@
 import { Box, Container } from '@mui/material'
+import NavBar from "./NavBar";
 import React from 'react'
 import PostCard from './PostCard'
 
 const HomePage = () => {
   return (
+    <>
+    <NavBar/>
     <Box>
       <Container>
         <PostCard/>
@@ -16,8 +19,8 @@ const HomePage = () => {
         <PostCard/>
         <PostCard/>
       </Container>
-      
     </Box>
+    </>
   )
 }
 

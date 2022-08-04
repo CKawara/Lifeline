@@ -40,7 +40,7 @@ const NavBar = () => {
             <Container maxWidth='xl' >
                 <Toolbar>
                     <Typography className='logo' variant="h4" sx={{marginRight: 'auto', cursor: 'pointer'}} 
-                onClick={()=>history('/')}>
+                onClick={()=>history('/home')}>
                         LifeLine
                     </Typography>
                     <Hidden smDown>
