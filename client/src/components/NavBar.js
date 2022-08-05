@@ -3,7 +3,8 @@ import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {makeStyles} from '@mui/styles';
-import { AppBar, Avatar, Divider, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { AppBar, Avatar, Divider, Fab, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';import { Container } from '@mui/system';
 
@@ -50,13 +51,16 @@ const NavBar = ({ user, setUser }) => {
                 onClick={()=>history('/')}>
                         LifeLine
                     </Typography>
+                    <Fab size="small" sx={{backgroundColor:"#038B83", color:"white", mb:1}} aria-label="add" >
+                        <AddIcon />
+                    </Fab>
                     <Hidden smDown>
                         <div className={classes.navlinks}>
                             <NavLink to="/" exact className={classes.link} >
                                 Reach-Out
                             </NavLink>
                             <NavLink to="/dashboard" exact className={classes.link} >
-                                <Avatar sx={{ bgcolor: 'red', width: 28, height: 28 }} aria-label="recipe">
+                                <Avatar sx={{ bgcolor: 'red', width: 35, height: 35 }} aria-label="recipe">
                                     R
                                 </Avatar>
                             </NavLink>
