@@ -1,7 +1,7 @@
-import { Button, Dialog, DialogTitle, TextField } from '@mui/material'
+import { Button, Dialog, DialogTitle, TextareaAutosize, TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
-import React from 'react'
+import React, { useState } from 'react'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,47 +20,56 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const AddEntry = () => {
+const AddEntry = ({open, handleClose}) => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const classes = useStyles()
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        content: content
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => console.log(data));
+      } else {
+        r.json().then((err) => console.log(err.errors));
+      }
+    });
+  }
   return (
     <Dialog fullWidth open={open} onClose={handleClose}>
-        <DialogTitle>What's on Your mind:</DialogTitle>
+        <DialogTitle>hare with us:</DialogTitle>
         <form onSubmit={handleSubmit} className={classes.root}>
           <TextField  
-           margin='dense' 
-           label="Name" 
+           margin='dense'
+           label="Title" 
            id="name" 
            variant="outlined" 
            type='text'  
+           value={title}
+           onChange={(e) => setTitle(e.target.value)}
            required fullWidth  />
-          <TextField  
-           margin='dense' 
-           label="Number" 
-           id='number' 
-           variant="outlined" 
-           type="number"  
-           value={number}
-           onChange={(e) => setNumber(e.target.value)}
-           required fullWidth />
-          <TextField  
-           margin='dense' 
-           label="Email" 
-           id='email' 
-           variant="outlined" 
-           type="email"  
-           value={email}
-           onChange={(e) => setEmail(e.target.value)}
-           required fullWidth />
-          <TextField  
-           margin='dense' 
-           label="Password" 
-           id='password' 
-           variant="outlined" 
-           type="password"  
-           value={password}
-           onChange={(e) => setPassword(e.target.value)}
-           required fullWidth />
-          <Button type='submit' style={{color:'white',backgroundColor:'#038B83'}} disableElevation>
-            Sign Up
+           <textarea 
+           id="content" 
+           name="content" 
+           rows="7" 
+           cols="50"
+           placeholder='Whats on your mind...'
+           value={content}
+           onChange={(e) => setContent(e.target.value)}
+           >
+           </textarea>
+
+          <Button type='submit' style={{color:'white',backgroundColor:'#038B83', marginTop: 10}} disableElevation>
+            Share
           </Button>        
         </form>
     </Dialog>

@@ -3,8 +3,7 @@ import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {makeStyles} from '@mui/styles';
-import AddIcon from '@mui/icons-material/Add';
-import { AppBar, Avatar, Divider, Fab, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Divider, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';import { Container } from '@mui/system';
 
@@ -33,6 +32,7 @@ const NavBar = ({ user, setUser }) => {
     const classes = useStyles()
     const history = useNavigate()
     const [open, setOpen]=useState(false)
+
     
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -40,7 +40,7 @@ const NavBar = ({ user, setUser }) => {
             setUser(null);
           }
         });
-    }
+    }  
 
   return (
     <Box sx={{ boxShadow: 3 }}>
@@ -51,9 +51,7 @@ const NavBar = ({ user, setUser }) => {
                 onClick={()=>history('/')}>
                         LifeLine
                     </Typography>
-                    <Fab size="small" sx={{backgroundColor:"#038B83", color:"white", mb:1}} aria-label="add" >
-                        <AddIcon />
-                    </Fab>
+
                     <Hidden smDown>
                         <div className={classes.navlinks}>
                             <NavLink to="/" exact className={classes.link} >
