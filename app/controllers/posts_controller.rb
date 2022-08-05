@@ -36,10 +36,31 @@ class PostsController < ApplicationController
             render json: { error: "post not found" }, status: :not_found
         end
     end
+
+    def increment_hugs
+        post = Post.find_by(id: params[:id])
+        if post
+          post.update(hugs: post.hugs + 1)
+          render json: post
+        else
+          render json: { error: "post not found" }, status: :not_found
+        end
+    end
+
+    
+    def increment_support
+        post = Post.find_by(id: params[:id])
+        if post
+          post.update(withYou: post.withYou + 1)
+          render json: post
+        else
+          render json: { error: "post not found" }, status: :not_found
+        end
+    end
     
     private
 
     def post_params
-        params.permit(:title, :content)
+        params.permit(:title, :content, :hugs, :withYou)
     end
 end
