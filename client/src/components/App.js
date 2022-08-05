@@ -18,6 +18,8 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
+    console.log(user)
+
   }, []);
  
   if (!user) return <Login  onLogin={setUser} />;

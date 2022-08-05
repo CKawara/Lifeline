@@ -1,5 +1,4 @@
 import { Avatar, Divider, Typography } from '@mui/material'
-import NavBar from "./NavBar";
 import {makeStyles} from '@mui/styles';
 import { Container } from '@mui/system'
 import React from 'react'

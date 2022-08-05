@@ -1,16 +1,22 @@
 import { Box, Container, Fab } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddEntry from './AddEntry'
 import AddIcon from '@mui/icons-material/Add';
 import PostCard from './PostCard'
 
 const HomePage = () => {
   const [open, setOpen]=useState(false)
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("/posts")
+      .then((r) => r.json())
+      .then(setPosts);
+  }, []);
 
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -23,15 +29,11 @@ const HomePage = () => {
     </Fab>
       <AddEntry open={open} handleClose={handleClose}/>
       <Container>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
-        <PostCard/>
+        {
+          posts.map((post)=>(
+            <PostCard key={post.id} post={post}/>
+          ))
+        }
       </Container>
     </Box>
     </>

@@ -1,7 +1,8 @@
-import { Button, Dialog, DialogTitle, TextareaAutosize, TextField } from '@mui/material'
+import { Button, Dialog, DialogTitle, TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,6 +25,7 @@ const AddEntry = ({open, handleClose}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const classes = useStyles()
+  const history = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -68,7 +70,7 @@ const AddEntry = ({open, handleClose}) => {
            >
            </textarea>
 
-          <Button type='submit' style={{color:'white',backgroundColor:'#038B83', marginTop: 10}} disableElevation>
+          <Button onClick={()=> history('/')} type='submit' style={{color:'white',backgroundColor:'#038B83', marginTop: 10}} disableElevation>
             Share
           </Button>        
         </form>
