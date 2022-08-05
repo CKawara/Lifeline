@@ -1,7 +1,7 @@
 import { Avatar, Divider, Typography } from '@mui/material'
 import {makeStyles} from '@mui/styles';
 import { Container } from '@mui/system'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProfileCard from './ProfileCard';
 
 const useStyles = makeStyles(()=>({
@@ -14,8 +14,20 @@ const useStyles = makeStyles(()=>({
   }
 }))
 
+
 const Dashboard = () => {
   const classes = useStyles( )
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((users) => setUser(users));
+      }
+    });
+    console.log(user[0])
+  }, []);
   return (
     <>
       <Container>
@@ -32,6 +44,12 @@ const Dashboard = () => {
       <Divider/>
       <Typography sx={{mt: 3}} align="center" variant='h4'>My Posts</Typography>
       <ProfileCard/>
+      <ProfileCard/>
+      <ProfileCard/>
+      <ProfileCard/>
+      <ProfileCard/>
+      <ProfileCard/>
+
     </Container>
     </>
     

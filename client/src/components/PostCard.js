@@ -15,7 +15,7 @@ const PostCard = ({post}) => {
     function handleClick(e) {
         e.preventDefault();
 
-        fetch(`/posts/${id}/hug`, {
+        fetch(`/posts/${post.id}/hug`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

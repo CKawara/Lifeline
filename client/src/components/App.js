@@ -18,7 +18,6 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-    console.log(user)
 
   }, []);
  
@@ -30,7 +29,7 @@ function App() {
       <Routes>
         <Route path={"/"} element={<HomePage/>} exact/>
         <Route path={"/posts/:id"} element={<SinglePost/>}/>
-        <Route path={"/dashboard"} element={<Dashboard/>}/>
+        <Route path={"/dashboard"} element={<Dashboard user={user}/>}/>
       </Routes>
     </div>
     </BrowserRouter>

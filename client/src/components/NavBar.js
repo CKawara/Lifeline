@@ -6,6 +6,7 @@ import {makeStyles} from '@mui/styles';
 import { AppBar, Avatar, Divider, Hidden, IconButton, List, ListItem, SwipeableDrawer, Toolbar, Typography } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';import { Container } from '@mui/system';
+import Contacts from './Contacts';
 
 const useStyles = makeStyles((theme)=> ({
 
@@ -32,6 +33,9 @@ const NavBar = ({ user, setUser }) => {
     const classes = useStyles()
     const history = useNavigate()
     const [open, setOpen]=useState(false)
+    const [opens, setOpens ]=useState(false)
+
+
 
     
     function handleLogoutClick() {
@@ -41,7 +45,12 @@ const NavBar = ({ user, setUser }) => {
           }
         });
     }  
-
+    const handleOpen = () => {
+        setOpens(true);
+      };
+      const handleClose = () => {
+        setOpens(false);
+      };
   return (
     <Box sx={{ boxShadow: 3 }}>
         <AppBar color='transparent' position='sticky' >
@@ -54,7 +63,7 @@ const NavBar = ({ user, setUser }) => {
 
                     <Hidden smDown>
                         <div className={classes.navlinks}>
-                            <NavLink to="/" exact className={classes.link} >
+                            <NavLink to="/" exact className={classes.link} onClick={handleOpen}>
                                 Reach-Out
                             </NavLink>
                             <NavLink to="/dashboard" exact className={classes.link} >
@@ -86,7 +95,7 @@ const NavBar = ({ user, setUser }) => {
                 <Divider/>
                 <List >
                     <ListItem>
-                    <NavLink to="/" exact className={classes.link} >
+                    <NavLink to="/" exact className={classes.link} onClick={handleOpen}>
                             Reach-Out
                         </NavLink>
                     </ListItem>
@@ -103,6 +112,7 @@ const NavBar = ({ user, setUser }) => {
                 </List>
             </SwipeableDrawer>
         </AppBar>
+        <Contacts opens={opens} handleClose={handleClose}/>
     </Box>
   )
 }
