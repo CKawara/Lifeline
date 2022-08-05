@@ -92,7 +92,7 @@ const Login = ({ onLogin }) => {
             onClick={handleOpen}
             >SignUp</Button>
           </Typography>
-          <Signup open={open} handleClose={handleClose}/>
+          <Signup open={open} handleClose={handleClose} onLogin={onLogin}/>
         </Box>
       </Grid>
     </Grid>
