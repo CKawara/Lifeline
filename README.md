@@ -1,24 +1,40 @@
-# README
+# Lifeline
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### By Catherine Kawara
 
-Things you may want to cover:
+## INTRODUCTION
 
-* Ruby version
+This project is built using React for the front end, Rails API, and Heroku for hosting.
 
-* System dependencies
+## Description
+This is a web application that mimics a social platform. It is aimed at connecting Covid patients so they can share their experinces and give each other support.
+Here's the live link https://lifelinee-app.herokuapp.com/
 
-* Configuration
 
-* Database creation
+## Setup Requirements
+* Clone repository link
+* Navigate to the directory,
+* Run the following to install dependencies
+    bundle install
+    npm install --prefix client
+* Run the Rails server with:
+     rails s
+* In another terminal, Run React with:
+     npm start --prefix client
 
-* Database initialization
+## Technologies Used
+* Ruby
+* Ruby on Rails
+* ActiveRecord
+* React
+* JavaScript
+* Material UI
+* Figma
+* Heroku
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Licence
 
-* ...
+Copyright (c) 2022 [Click to view License](https://github.com/CKawara/Lifeline/blob/main/LICENSE)
+
