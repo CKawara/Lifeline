@@ -15,12 +15,12 @@ Here's the live link https://lifelinee-app.herokuapp.com/
 * Clone repository link
 * Navigate to the directory,
 * Run the following to install dependencies
-    bundle install
-    npm install --prefix client
+    ```bundle install
+    npm install --prefix client```
 * Run the Rails server with:
-     rails s
+     ```rails s```
 * In another terminal, Run React with:
-     npm start --prefix client
+     ```npm start --prefix client```
 
 ## Technologies Used
 * Ruby
